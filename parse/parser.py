@@ -11,7 +11,7 @@ class Parser:
         # export arguments
         # print(locals)
         for key, value in args.__dict__.items():
-            print(key, value)
+            # print(key, value)
             os.environ[key] = value
 
     def __new__(cls):
