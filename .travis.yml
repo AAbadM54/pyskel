@@ -4,11 +4,13 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
-env:
-  - ENVIRONMENT: qa
+before_script:
+  - echo branch $TRAVIS_BRANCH
+  - echo builddir $TRAVIS_BUILD_DIR
+  - echo commit $TRAVIS_COMMIT
+# command to run tests
+script: ./test.py --env qa
 branches:
   only:
     - master
     - develop
-# command to run tests
-script: python3 -m unittest discover -s test -p "test_*.py" -v

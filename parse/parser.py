@@ -6,7 +6,7 @@ class Parser:
         parser = argparse.ArgumentParser(description='python project skeleton')
         parser.add_argument('-e', '--env', dest='ENVIRONMENT', default='local',
                             choices=('prod', 'qa', 'local'), help='current environment')
-        parser.add_argument('--handler', dest='HANDLER', default='default_handle', help='current environment')
+        # parser.add_argument('--handler', dest='HANDLER', default='default_handle', help='current environment')
         args = parser.parse_args()
         # export arguments
         # print(locals)
