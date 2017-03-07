@@ -5,9 +5,9 @@ python:
 install:
   - pip install -r requirements.txt
 before_script:
-  - echo branch $TRAVIS_BRANCH
-  - echo builddir $TRAVIS_BUILD_DIR
-  - echo commit $TRAVIS_COMMIT
+  - echo branch ${TRAVIS_BRANCH}
+  - echo builddir ${TRAVIS_BUILD_DIR}
+  - echo commit ${TRAVIS_COMMIT}
 # command to run tests
 script: python test.py --env qa
 branches:
