@@ -1,6 +1,18 @@
 language: python
 python:
   - 3.5
+env:
+  global:
+    - VAR1: 1
+    - VAR2: 2
+  matrix:
+    - ENVIRONMENT=qa
+    - ENVIRONMENT=prod ABC=123 DEF=456
+branches:
+  only:
+    - master
+    - develop
+
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -9,15 +21,4 @@ before_script:
   - echo builddir ${TRAVIS_BUILD_DIR}
   - echo commit ${TRAVIS_COMMIT}
 # command to run tests
-script: python test.py --env qa
-env:
-  global:
-    - VAR1: 1
-    - VAR2: 2
-  matrix:
-    - ENVIRONMENT=testenv
-    - ENVIRONMENT=testenvprodd ABC=123 DEF=456
-branches:
-  only:
-    - master
-    - develop
+script: python test.py --env $ENVIRONMENT
