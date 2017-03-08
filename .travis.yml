@@ -2,12 +2,10 @@ language: python
 python:
   - 3.5
 env:
-  global:
-    - VAR1: 1
-    - VAR2: 2
   matrix:
+    - ENVIRONMENT=prod
     - ENVIRONMENT=qa
-    - ENVIRONMENT=prod ABC=123 DEF=456
+    - ENVIRONMENT=local
 branches:
   only:
     - master
@@ -16,9 +14,5 @@ branches:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
-before_script:
-  - echo branch ${TRAVIS_BRANCH}
-  - echo builddir ${TRAVIS_BUILD_DIR}
-  - echo commit ${TRAVIS_COMMIT}
 # command to run tests
-script: python test.py --env $ENVIRONMENT
+script: python test.py --env ENVIRONMENT
