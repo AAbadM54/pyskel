@@ -10,6 +10,13 @@ before_script:
   - echo commit ${TRAVIS_COMMIT}
 # command to run tests
 script: python test.py --env qa
+env:
+  global:
+    - VAR1: 1
+    - VAR2: 2
+  matrix:
+    - ENVIRONMENT=testenv
+    - ENVIRONMENT=testenvprodd ABC=123 DEF=456
 branches:
   only:
     - master
