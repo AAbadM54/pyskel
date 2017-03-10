@@ -9,6 +9,7 @@ branches:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - pip install coveralls
 # command to run tests
 script: nose2 test -v --coverage pyskel --with-coverage
 after_success:
