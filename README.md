@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/thibalbo/pyskel.svg?branch=master)](https://travis-ci.org/thibalbo/pyskel)
+[![Coverage Status](https://coveralls.io/repos/github/thibalbo/pyskel/badge.svg)](https://coveralls.io/github/thibalbo/pyskel)
+
 # Pyskel
 
 A simple python project skeleton.
