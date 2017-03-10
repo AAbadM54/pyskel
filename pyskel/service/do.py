@@ -15,6 +15,5 @@ def run():
     varname = 'Port'
     logger.info('var %s=%s', varname, config.get_property(varname))
 
-
-if __name__ == '__main__':
-    run()
+def main(event, context):
+    pass

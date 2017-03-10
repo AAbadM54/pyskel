@@ -1,10 +1,10 @@
 """Module handler"""
 import logging
-from pyskel.handler import do_handler
+from pyskel.service import do
 
 logger = logging.getLogger(__name__)
 
 def do_handle(event, context):
     """Do handler"""
     logger.info('do handler called')
-    do_handler.handle()
+    do.main(event, context)

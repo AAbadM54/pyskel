@@ -1,6 +1,6 @@
-# Project Title
+# Pyskel
 
-One Paragraph of project description goes here
+A simple python project skeleton.
 
 ## Getting Started
 
