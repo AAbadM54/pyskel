@@ -10,7 +10,12 @@ ENVIRONMENTS = ['local', 'qa', 'prod']
 
 
 def main(handler, env):
-    """"Commandline interface to configure how pyskel should run."""
+    """"
+    Commandline interface to configure how pyskel should run.
+
+    :param handler: handler to be executed
+    :param env: environment (one of: local | qa | prod)
+    """
     try:
         _handler = getattr(handle, handler)
     except AttributeError:
