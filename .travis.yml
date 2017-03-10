@@ -10,6 +10,6 @@ branches:
 install:
   - pip install -r requirements.txt
 # command to run tests
-script: nose2 test -v
+script: nose2 test -v --coverage pyskel --with-coverage
 after_success:
   - coveralls
