@@ -4,9 +4,9 @@ import config
 
 logger = logging.getLogger(name=__name__)
 
-def do_something(p):
+def do_something(pre):
     """Do something"""
-    if isinstance(p, list):
+    if isinstance(pre, list):
         return True
     return False
 

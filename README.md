@@ -11,63 +11,46 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You need to setup your [Travis CI](https://travis-ci.org/) and [Coveralls](https://coveralls.io/) account.
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+You just need to install the packages in `requirements.txt` (compatible with python 3.5):
 
 ```
-Give the example
+git clone https://github.com/thibalbo/pyskel.git
+cd pyskel
+pip install -r requirements.txt
 ```
 
-And repeat
+You run the project using the `run.py` file. You need to provide handler and environment to execute.
 
 ```
-until finished
+python run.py HANDLER ENV
+python run.py --handler HANDLER --env ENV
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Examples:
+
+```
+python run.py do_handle qa
+python run.py --handler do_handle --env prod
+```
+
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+You run tests using the `nose2` package.
 
 ```
-python3 -m unittest discover -s test -p "test_*.py" -v
-```
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+nose2 test -v
+nose2 test -v --with-coverage
+nose2 test -v --coverage pyskel --with-coverage
 ```
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
