@@ -15,15 +15,15 @@ You need to setup your [Travis CI](https://travis-ci.org/) and [Coveralls](https
 
 ### Installing
 
-You just need to install the packages in `requirements.txt`:
+You just need to install the packages in `requirements.txt` (compatible with python 3.5):
 
 ```
-virtualenv -p python3.5 venv
-source venv/bin/activate
+git clone https://github.com/thibalbo/pyskel.git
+cd pyskel
 pip install -r requirements.txt
 ```
 
-You run the project using the run.py file. You need to provide handler and environment to execute.
+You run the project using the `run.py` file. You need to provide handler and environment to execute.
 
 ```
 python run.py HANDLER ENV
