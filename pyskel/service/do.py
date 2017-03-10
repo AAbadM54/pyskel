@@ -1,7 +1,6 @@
 """Do something"""
 import logging
 import config
-
 logger = logging.getLogger(name=__name__)
 
 def do_something(p):
@@ -10,7 +9,7 @@ def do_something(p):
     return False
 
 def run():
-    """Run"""
+    """Run module"""
     logger.info('run')
 
     varname = 'Port'

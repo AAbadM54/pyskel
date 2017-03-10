@@ -1,12 +1,12 @@
 import unittest
-from pyskel.service import do
+from pyskel.service.do import do_something
 
 class TestStringMethods(unittest.TestCase):
 
     def test_do_something(self):
-        self.assertTrue(do.do_something([]))
-        self.assertFalse(do.do_something({}))
-        self.assertFalse(do.do_something(None))
+        self.assertTrue(do_something([]))
+        self.assertFalse(do_something({}))
+        self.assertFalse(do_something(None))
 
     def test_split(self):
         s = 'hello world'
