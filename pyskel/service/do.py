@@ -5,17 +5,17 @@ import config
 logger = logging.getLogger(name=__name__)
 
 def do_something(p):
+    """Do something"""
     if isinstance(p, list):
         return True
     return False
 
 def run():
-    """Run"""
-    logger.info('run')
+    """Run module"""
+    port = 'PORT'
+    env = 'ENVIRONMENT'
+    logger.info('%s=%s %s=%s', port, config.get_property(port), env, config.get_property(env))
 
-    varname = 'Port'
-    logger.info('var %s=%s', varname, config.get_property(varname))
-
-
-if __name__ == '__main__':
+def main(event, context):
+    """Main"""
     run()
