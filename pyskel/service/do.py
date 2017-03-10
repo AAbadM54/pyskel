@@ -1,6 +1,7 @@
 """Do something"""
 import logging
 import config
+
 logger = logging.getLogger(name=__name__)
 
 def do_something(p):
@@ -10,10 +11,9 @@ def do_something(p):
 
 def run():
     """Run module"""
-    logger.info('run')
-
-    varname = 'Port'
-    logger.info('var %s=%s', varname, config.get_property(varname))
+    port = 'PORT'
+    env = 'ENVIRONMENT'
+    logger.info('%s=%s %s=%s', port, config.get_property(port), env, config.get_property(env))
 
 def main(event, context):
-    pass
+    run()
