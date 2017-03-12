@@ -1,20 +1,24 @@
 import unittest
-from pyskel.service.do import do_something
+from unittest.mock import patch
+from pyskel.service import do
 
-class TestStringMethods(unittest.TestCase):
+class TestDoMethods(unittest.TestCase):
 
     def test_do_something(self):
-        self.assertTrue(do_something([]))
-        self.assertFalse(do_something({}))
-        self.assertFalse(do_something(None))
+        self.assertTrue(do.do_something([]))
+        self.assertFalse(do.do_something({}))
+        self.assertFalse(do.do_something(None))
 
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
+    @patch('pyskel.service.do.run')
+    def test_run(self, run):
+        run()
+        self.assertTrue(run.called)
+
+    @patch('pyskel.service.do.main')
+    def test_main(self, main):
+        main()
+        self.assertTrue(main.called)
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(TestStringMethods)
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestDoMethods)
     unittest.TextTestRunner(verbosity=2).run(suite)
