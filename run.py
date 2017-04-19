@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 ENVIRONMENTS = ['local', 'qa', 'prod']
 
 
-def main(handler, env):
+def main(handler, env='local'):
     """"
     Commandline interface to configure how pyskel should run.
 
@@ -34,7 +34,8 @@ def main(handler, env):
         logger.error('Handler not found.', exc_info=True)
         sys.exit(1)
 
-    logger.info('All set up. Calling handler...')
+    logger.info('All set up: handler=%s env=%s', handler, env)
+    logger.info('Calling handler...')
     event, context = None, None
     return _handler(event, context)
 
