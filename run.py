@@ -10,12 +10,14 @@ logger = logging.getLogger(__name__)
 ENVIRONMENTS = ['local', 'qa', 'prod']
 
 
-def main(handler, env='local'):
+def main(handler, env='local', event=None, context=None):
     """"
     Commandline interface to configure how pyskel should run.
 
     :param handler: handler to be executed
     :param env: environment (one of: local | qa | prod)
+    :param event: dict-like object that is passed to the handler
+    :param context: execution context that is passed to the handler (used by AWSLambda)
     """
     logger.info('Setting environment...')
     if env in ENVIRONMENTS:
@@ -36,7 +38,6 @@ def main(handler, env='local'):
 
     logger.info('All set up: handler=%s env=%s', handler, env)
     logger.info('Calling handler...')
-    event, context = None, None
     return _handler(event, context)
 
 
