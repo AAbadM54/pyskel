@@ -28,7 +28,7 @@ def main(handler, env='local', event=None, context=None):
 
     try:
         logger.info('Assigning handler...')
-        # later import to avoid loading all modules before adding environment variable to environment
+        # later import avoid loading all modules before adding environment variable to environment
         # to avoid any global variable loading None or from config file
         from pyskel import handle
         _handler = getattr(handle, handler)
