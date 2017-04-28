@@ -3,18 +3,23 @@ import logging
 import sys
 import os
 import fire
+from log import log
 
+log.setup_logging(default_path='log/config.yml') # config file load must come before getting logger
 logger = logging.getLogger(__name__)
 ENVIRONMENTS = ['local', 'qa', 'prod']
 
 
-def main(handler, env):
+def main(handler, env='local', event=None, context=None):
     """"
     Commandline interface to configure how pyskel should run.
 
     :param handler: handler to be executed
     :param env: environment (one of: local | qa | prod)
+    :param event: dict-like object that is passed to the handler
+    :param context: execution context that is passed to the handler (used by AWSLambda)
     """
+    logger.info('Setting environment...')
     if env in ENVIRONMENTS:
         os.environ['ENVIRONMENT'] = env
     else:
@@ -22,7 +27,8 @@ def main(handler, env):
         sys.exit(1)
 
     try:
-        # later import to void loading all modules before adding environment variable to environment
+        logger.info('Assigning handler...')
+        # later import to avoid loading all modules before adding environment variable to environment
         # to avoid any global variable loading None or from config file
         from pyskel import handle
         _handler = getattr(handle, handler)
@@ -30,7 +36,8 @@ def main(handler, env):
         logger.error('Handler not found.', exc_info=True)
         sys.exit(1)
 
-    event, context = None, None
+    logger.info('All set up: handler=%s env=%s', handler, env)
+    logger.info('Calling handler...')
     return _handler(event, context)
 
 
