@@ -2,10 +2,10 @@ from setuptools import setup
 import pyskel
 
 setup(name='pyskel',
+      author=pyskel.__author__,
+      author_email=pyskel.__email__,
       version=pyskel.__version__,
       description='Create python project structure',
-      author='Thiago Balbo',
-      author_email='thiago.dbalbo@gmail.com',
       packages=['pyskel'],
       entry_points={
         'console_scripts': [
