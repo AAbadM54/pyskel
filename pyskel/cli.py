@@ -40,7 +40,7 @@ def main(handler, env, event, context):
         # later import avoid loading all modules before adding environment
         # variable to environment to avoid any global variable loading None
         # or from config file
-        from pyskel import handle
+        from . import handle
         _handler = getattr(handle, handler)
     except AttributeError:
         logger.error('Handler not found.', exc_info=True)
