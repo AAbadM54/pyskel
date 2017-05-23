@@ -9,7 +9,7 @@ setup(name='pyskel',
       packages=['pyskel'],
       entry_points={
         'console_scripts': [
-            'foo = pyskel.__main__:main',
+            'rpyskel = pyskel.__main__:main',
         ]
     }
 )
