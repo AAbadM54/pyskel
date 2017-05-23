@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch
 from pyskel.service import do
 
+
 class TestDoMethods(unittest.TestCase):
 
     def test_do_something(self):
@@ -18,6 +19,7 @@ class TestDoMethods(unittest.TestCase):
     def test_main(self, main):
         main()
         self.assertTrue(main.called)
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestDoMethods)

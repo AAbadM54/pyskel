@@ -10,6 +10,5 @@ setup(name='pyskel',
       entry_points={
         'console_scripts': [
             'rpyskel = pyskel.__main__:main',
-        ]
-    }
-)
+        ]}
+      )
