@@ -1,19 +1,15 @@
-from distutils.core import setup
+from setuptools import setup
+import pyskel
 
 setup(name='pyskel',
-      version='1.0.0',
+      version=pyskel.__version__,
       description='Create python project structure',
       author='Thiago Balbo',
       author_email='thiago.dbalbo@gmail.com',
-      packages=[
-        'pyskel',
-        'pyskel.service',
-        'pyskel.domain',
-        'pyskel.model',
-        'test',
-        'test.service',
-        'test.domain',
-        'test.model',
-        'log',
-        'deploy'],
-     )
+      packages=['pyskel'],
+      entry_points={
+        'console_scripts': [
+            'foo = pyskel.__main__:main',
+        ]
+    }
+)

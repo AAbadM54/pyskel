@@ -5,3 +5,8 @@ venv
 *.pyc
 *.coverage
 *.cache
+
+dist/
+build/
+*.egg-info/
+
