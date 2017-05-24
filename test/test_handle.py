@@ -1,13 +1,8 @@
-import unittest
-from unittest.mock import patch
+"""test.test_handle"""
+from pyskel import handle
 
-class TestHandle(unittest.TestCase):
 
-    @patch('pyskel.handle.do_handle')
-    def test_handle(self, do_handle):
-        do_handle()
-        self.assertTrue(do_handle.called)
-
-if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(TestHandle)
-    unittest.TextTestRunner(verbosity=2).run(suite)
+def test_do_handle():
+    event, context = None, None
+    resp = handle.do_handle(event, context)
+    assert resp is None
