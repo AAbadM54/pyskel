@@ -11,6 +11,6 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
 # command to run tests
-script: nose2 test -v --coverage pyskel --with-coverage
+script: pytest
 after_success:
   - coveralls
