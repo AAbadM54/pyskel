@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import pyskel
 
 setup(name='pyskel',
@@ -6,7 +6,7 @@ setup(name='pyskel',
       author_email=pyskel.__email__,
       version=pyskel.__version__,
       description='Create python project structure',
-      packages=['pyskel'],
+      packages=find_packages(),
       entry_points={
         'console_scripts': [
             'rpyskel = pyskel.__main__:main',
