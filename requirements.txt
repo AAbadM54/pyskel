@@ -1,6 +1,5 @@
 click==6.7
 py==1.4.33
--e git+https://github.com/thibalbo/pyskel.git@b772dfe2876da641e7237cf5e2659a0dda41d906#egg=pyskel
 pytest==3.1.0
 python-dotenv==0.6.4
 PyYAML==3.12
