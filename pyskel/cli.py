@@ -5,6 +5,7 @@ import sys
 import logging
 import json
 import click
+from pyskel import handle
 
 
 class DictParamType(click.ParamType):
@@ -37,10 +38,6 @@ def main(handler, env, event, context):
 
     try:
         logger.info('Assign handler...')
-        # later import avoid loading all modules before adding environment
-        # variable to environment to avoid any global variable loading None
-        # or from config file
-        from . import handle
         _handler = getattr(handle, handler)
     except AttributeError:
         logger.error('Handler not found.', exc_info=True)
