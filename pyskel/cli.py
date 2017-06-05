@@ -23,8 +23,7 @@ class DictParamType(click.ParamType):
 
 @click.command()
 @click.argument('handler', type=click.STRING)
-@click.option('--env', default='local',
-              type=click.Choice(['local', 'qa', 'prod']),
+@click.option('--env', type=click.Choice(['local', 'qa', 'prod']),
               help='environment (local | qa | prod)')
 @click.option('--event', '-e', type=DictParamType())
 @click.option('--context', '-c', type=DictParamType())
@@ -32,8 +31,14 @@ def main(handler, env, event, context):
     """Define how pyskel will execute."""
     logger = logging.getLogger(__name__)
 
-    logger.info('Setup environment...')
-    os.environ['ENVIRONMENT'] = env
+    if not (env or os.getenv('ENVIRONMENT')):
+        logger.error('Please either supply the ENVIRONMENT variable through \
+                      .env file or --env command-line option.')
+        sys.exit(1)
+
+    if env:
+        logger.info('Setting up environment variable...')
+        os.environ['ENVIRONMENT'] = env
 
     try:
         logger.info('Assign handler...')
