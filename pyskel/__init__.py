@@ -4,7 +4,7 @@ __version__ = '0.1.0'
 
 import logging.config
 import os
-from .config import get_property
+from pyskel.config import get_property
 import yaml
 import dotenv
 
