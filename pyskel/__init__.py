@@ -4,7 +4,7 @@ __version__ = '0.1.0'
 
 import logging.config
 import os
-from pyskel import config
+from .config import get_property
 import yaml
 import dotenv
 
@@ -12,8 +12,8 @@ import dotenv
 dotenv.load_dotenv('.env')
 
 # load logger
-log_directory = config.get_property('LOGDIR')
-log_filename = config.get_property('LOGFILENAME')
+log_directory = get_property('LOGDIR')
+log_filename = get_property('LOGFILENAME')
 if not os.path.exists(log_directory):
     os.makedirs(log_directory)
 logging_cfg = yaml.safe_load(open(log_filename, 'rt'))
